@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { GeistSans as Geist } from 'next/font/google'; // Simplified import for GeistSans
+import { GeistSans } from 'geist/font/sans';
 import './globals.css';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
@@ -7,10 +7,11 @@ import { CartProvider } from '@/context/cart-context';
 import { Toaster } from "@/components/ui/toaster";
 import { siteConfig } from '@/config/site';
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-});
+// No need to instantiate GeistSans here if only using the variable name in className
+// const geistSans = GeistSans({
+//   variable: '--font-geist-sans',
+//   subsets: ['latin'], // subsets might not be needed or configured differently for geist/font
+// });
 
 export const metadata: Metadata = {
   title: {
@@ -28,7 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${geistSans.variable} font-sans antialiased flex flex-col min-h-screen`}>
+      <body className={`${GeistSans.variable} font-sans antialiased flex flex-col min-h-screen`}>
         <CartProvider>
           <Header />
           <main className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8">
