@@ -48,7 +48,7 @@ export default function CartPage() {
                   {item.name}
                 </Link>
                 <p className="text-sm text-muted-foreground">{item.category}</p>
-                <p className="text-md font-medium text-primary mt-1">${item.price.toFixed(2)}</p>
+                <p className="text-md font-medium text-primary mt-1">${item.price.toFixed(0)}</p>
               </div>
               <div className="flex flex-col sm:items-end justify-between gap-2 sm:gap-0">
                 <div className="flex items-center border rounded-md w-min self-start sm:self-end">
@@ -66,13 +66,13 @@ export default function CartPage() {
                     <Plus className="h-4 w-4" />
                   </Button>
                 </div>
-                 <p className="text-lg font-semibold sm:hidden">${(item.price * item.quantity).toFixed(2)}</p> {/* Total for item on small screens */}
+                 <p className="text-lg font-semibold sm:hidden">${(item.price * item.quantity).toFixed(0)}</p> {/* Total for item on small screens */}
                 <Button variant="ghost" size="icon" onClick={() => removeFromCart(item.id)} className="text-destructive hover:text-destructive/80 self-start sm:self-end" aria-label={`Remove ${item.name} from cart`}>
                   <Trash2 className="h-4 w-4" />
                 </Button>
               </div>
                <div className="hidden sm:flex flex-col items-end justify-center w-20">
-                 <p className="text-lg font-semibold">${(item.price * item.quantity).toFixed(2)}</p>
+                 <p className="text-lg font-semibold">${(item.price * item.quantity).toFixed(0)}</p>
                </div>
             </div>
           ))}
@@ -87,7 +87,7 @@ export default function CartPage() {
           <div className="space-y-3 mb-6">
             <div className="flex justify-between">
               <span className="text-muted-foreground">Subtotal ({getItemCount()} items)</span>
-              <span>${getTotalPrice().toFixed(2)}</span>
+              <span>${getTotalPrice().toFixed(0)}</span>
             </div>
             <div className="flex justify-between">
               <span className="text-muted-foreground">Shipping</span>
@@ -101,7 +101,7 @@ export default function CartPage() {
           <Separator className="my-6"/>
           <div className="flex justify-between text-xl font-bold mb-6">
             <span>Total</span>
-            <span>${getTotalPrice().toFixed(2)}</span>
+            <span>${getTotalPrice().toFixed(0)}</span>
           </div>
           <Button asChild size="lg" className="w-full">
             <Link href="/checkout">

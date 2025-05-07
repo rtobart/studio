@@ -37,7 +37,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         <CardDescription className="text-sm text-muted-foreground mb-2 h-10 overflow-hidden">
           {product.description}
         </CardDescription>
-        <p className="text-base font-bold text-primary">${product.price.toFixed(2)}</p>
+        <p className="text-base font-bold text-primary">${product.price.toFixed(0)}</p>
       </CardContent>
       <CardFooter className="p-4 border-t mt-auto">
         <Button 

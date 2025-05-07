@@ -16,10 +16,16 @@ export default async function ProductsPage({
 }: {
   searchParams?: { [key: string]: string | string[] | undefined };
 }) {
-  const category = typeof searchParams?.category === 'string' ? searchParams.category : undefined;
+  // Asegúrate de que searchParams esté resuelto antes de usarlo
+  const resolvedSearchParams = await searchParams;
+
+  const category =
+    typeof resolvedSearchParams?.category === "string"
+      ? resolvedSearchParams.category
+      : undefined;
+
   const products: Product[] = await getProducts({ category });
   const categories: string[] = await getCategories();
-
   return (
     <div className="space-y-8">
       <div className="text-center">

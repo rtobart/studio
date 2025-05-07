@@ -211,9 +211,9 @@ export default function CheckoutPage() {
                 </div>
                 <div className="flex-grow">
                   <p className="font-medium">{item.name}</p>
-                  <p className="text-sm text-muted-foreground">${item.price.toFixed(2)}</p>
+                  <p className="text-sm text-muted-foreground">${item.price.toFixed(0)}</p>
                 </div>
-                <p className="font-medium">${(item.price * item.quantity).toFixed(2)}</p>
+                <p className="font-medium">${(item.price * item.quantity).toFixed(0)}</p>
               </div>
             ))}
           </div>
@@ -221,7 +221,7 @@ export default function CheckoutPage() {
           <div className="space-y-2 mb-6">
             <div className="flex justify-between">
               <span className="text-muted-foreground">Subtotal</span>
-              <span>${getTotalPrice().toFixed(2)}</span>
+              <span>${getTotalPrice().toFixed(0)}</span>
             </div>
             <div className="flex justify-between">
               <span className="text-muted-foreground">Shipping</span>
@@ -235,7 +235,7 @@ export default function CheckoutPage() {
           <Separator className="my-6" />
           <div className="flex justify-between text-xl font-bold mb-6">
             <span>Total</span>
-            <span>${getTotalPrice().toFixed(2)}</span>
+            <span>${getTotalPrice().toFixed(0)}</span>
           </div>
           <div className="flex items-center text-sm text-muted-foreground mt-4">
             <ShieldCheck className="h-5 w-5 mr-2 text-primary" />
