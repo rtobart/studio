@@ -7,11 +7,10 @@ import { CartProvider } from '@/context/cart-context';
 import { Toaster } from "@/components/ui/toaster";
 import { siteConfig } from '@/config/site';
 
-// No need to instantiate GeistSans here if only using the variable name in className
-// const geistSans = GeistSans({
-//   variable: '--font-geist-sans',
-//   subsets: ['latin'], // subsets might not be needed or configured differently for geist/font
-// });
+const geistSans = GeistSans({
+  variable: '--font-geist-sans',
+  subsets: ['latin'],
+});
 
 export const metadata: Metadata = {
   title: {
