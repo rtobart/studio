@@ -7,10 +7,8 @@ import { CartProvider } from '@/context/cart-context';
 import { Toaster } from "@/components/ui/toaster";
 import { siteConfig } from '@/config/site';
 
-const geistSans = GeistSans({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-});
+// The GeistSans import from 'geist/font/sans' is an object, not a function.
+// It directly provides properties like .variable and .className.
 
 export const metadata: Metadata = {
   title: {
@@ -28,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${GeistSans.variable} font-sans antialiased flex flex-col min-h-screen`}>
+      <body className={`${GeistSans.variable} font-sans antialiased flex flex-col min-h-screen bg-background text-foreground`}>
         <CartProvider>
           <Header />
           <main className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8">
